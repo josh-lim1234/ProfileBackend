@@ -19,3 +19,19 @@ Route::get('/apple', function () {
 });
 
 Route::resource('/user', UserController::class); 
+
+Route::get('/debug', function () {
+    $debug - [
+        'Environment' => App::environment(),
+    ];
+
+    try {
+        $database = DB::select('SHOW DATABASES;');
+        $debug['Database connection test'] = 'PASSED';
+        $debug['Databases'] = array_column($databases, 'Database');
+    } catch (Exception $e) {
+        $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
+    }
+
+    dump($debug);
+});
