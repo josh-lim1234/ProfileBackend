@@ -37,7 +37,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = User::updateOrCreate(
-            ['zoomid' => $request->get('zoomid')],[
+            ['email' => $request->get('email')],[
                 'name' => $request->name,
                 'occupation' => $request->occupation,
                 'prior_exp1' => $request->prior_exp1,
@@ -46,7 +46,6 @@ class UserController extends Controller
                 'interest1' => $request->interest1,
                 'interest2' => $request->interest2,
                 'interest3' => $request->interest3,
-                'email' => $request->email,
                 'mtgobj1' => $request->mtgobj1,
                 'mtgobj2' => $request->mtgobj2,
                 'mtgobj3' => $request->mtgobj3,
