@@ -63,7 +63,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return $user=User::where('zoomid', $id)->firstOrFail();
+        return $user=User::where('email', $id)->firstOrFail();
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::where('zoomid', $id)->firstOrFail()->delete();
+        $user=User::where('email', $id)->firstOrFail()->delete();
         return 'Deletion Successful';
     }
 }

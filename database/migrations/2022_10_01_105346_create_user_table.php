@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('interest1')->nullable();
             $table->string('interest2')->nullable();
             $table->string('interest3')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->unique();
             $table->string('mtgobj1');
             $table->string('mtgobj2')->nullable();
             $table->string('mtgobj3')->nullable();
