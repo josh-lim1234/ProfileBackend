@@ -30,7 +30,8 @@ class User extends Authenticatable
         'email',
         'mtgobj1',
         'mtgobj2',
-        'mtgobj3'
+        'mtgobj3',
+        'tmpmtgid'
     ];
 
     /**

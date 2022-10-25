@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('mtgobj1');
             $table->string('mtgobj2')->nullable();
             $table->string('mtgobj3')->nullable();
+            $table->string('tmpmtgid')->nullable();
             $table->timestamps();
         });
     }

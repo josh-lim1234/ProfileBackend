@@ -35,7 +35,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {  
         $user = User::updateOrCreate(
             ['email' => $request->get('email')],[
                 'name' => $request->name,
@@ -49,6 +49,7 @@ class UserController extends Controller
                 'mtgobj1' => $request->mtgobj1,
                 'mtgobj2' => $request->mtgobj2,
                 'mtgobj3' => $request->mtgobj3,
+                'tmpmtgid' => $request->tmpmtgid,
             ]
         );
         $user->save();
@@ -63,7 +64,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return $user=User::where('email', $id)->firstOrFail();
+        if (str_contains($id, "@")) {
+            return $user=User::where('email', $id)->firstOrFail();
+        } else {
+            return $user=User::where('tmpmtgid', $id)->firstOrFail();
+        }
     }
 
     /**
